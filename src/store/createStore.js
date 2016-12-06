@@ -3,8 +3,21 @@ import thunk from 'redux-thunk'
 import { browserHistory } from 'react-router'
 import makeRootReducer from './reducers'
 import { updateLocation } from './location'
+import { POLLEE_STATUSES, USER_TYPES } from './enums'
 
-export default (initialState = {}) => {
+export const initialState = {
+  userType: USER_TYPES.VISITOR,
+  status: undefined,
+  peer: undefined,
+  connection: undefined,
+  question: undefined,
+  answers: [],
+  location: '/'
+}
+
+// export const initialState = {}
+
+export default (initState = initialState) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -26,7 +39,7 @@ export default (initialState = {}) => {
   // ======================================================
   const store = createStore(
     makeRootReducer(),
-    initialState,
+    initState,
     compose(
       applyMiddleware(...middleware),
       ...enhancers

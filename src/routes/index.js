@@ -1,11 +1,11 @@
 // We only need to import the modules necessary for initial render
 import CoreLayout from '../layouts/CoreLayout/CoreLayout'
-import Home from './Home'
+import HomeRoute from './Home'
 import AboutRoute from './About'
 import CounterRoute from './Counter'
 
-import PollerRoute from './Poller'
-import PolleeRoute from './Pollee'
+import CreatePollRoute from './CreatePoll'
+import PollDashboardRoute from './PollDashboard'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -13,12 +13,12 @@ import PolleeRoute from './Pollee'
 export const createRoutes = (store) => ({
   path        : '/',
   component   : CoreLayout,
-  indexRoute  : Home,
+  indexRoute  : HomeRoute,
   childRoutes : [
     CounterRoute(store),
     AboutRoute(store),
-    PollerRoute(store),
-    PolleeRoute(store)
+    CreatePollRoute(store),
+    PollDashboardRoute(store)
   ]
 })
 

@@ -4,19 +4,20 @@ import './Header.scss'
 
 export const Header = () => (
   <div>
-    <h1>PinkFlag</h1>
-    <IndexLink to='/' activeClassName='route--active'>
-      Home
-    </IndexLink>
-    {' • '}
-    <Link to='/counter' activeClassName='route--active'>
-      Counter
-    </Link>
-    {' • '}
-    <Link to='/about' activeClassName='route--active'>
-      About
-    </Link>
-
+    <h1 className='centered'>PinkFlag</h1>
+    <div className='centered'>
+      <IndexLink to='/' activeClassName='route--active'>
+        Home
+      </IndexLink>
+      {' • '}
+      <Link to='/counter' activeClassName='route--active'>
+        Counter
+      </Link>
+      {' • '}
+      <Link to='/about' activeClassName='route--active'>
+        About
+      </Link>
+    </div>
   </div>
 )
 
