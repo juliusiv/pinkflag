@@ -1,10 +1,11 @@
 import { injectReducer } from '../../store/reducers'
 
 
-export const CREATE_POLL_PATH = 'create-poll'
+export const CONDUCT_POLL_PATH = 'conduct-poll'
+
 
 export default (store) => ({
-  path : CREATE_POLL_PATH,
+  path : CONDUCT_POLL_PATH,
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point
@@ -12,16 +13,16 @@ export default (store) => ({
     require.ensure([], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
-      const CreatePoll = require('./containers/CreatePollContainer').default
-      const reducer = require('./modules/create-poll').default
+      const ConductPoll = require('./containers/ConductPollContainer').default
+      const reducer = require('./modules/conduct-poll').default
 
-      /*  Add the reducer to the store on key 'createPoll'  */
-      injectReducer(store, { key: 'createPoll', reducer })
+      /*  Add the reducer to the store on key 'poll'  */
+      injectReducer(store, { key: 'poll', reducer })
 
       /*  Return getComponent   */
-      cb(null, CreatePoll)
+      cb(null, ConductPoll)
 
     /* Webpack named bundle   */
-    }, 'createPoll')
+    }, 'conductPoll')
   }
 })

@@ -56,6 +56,9 @@ webpackConfig.plugins = [
     minify   : {
       collapseWhitespace : true
     }
+  }),
+  new webpack.ProvidePlugin({
+    _ : 'underscore'
   })
 ]
 

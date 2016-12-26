@@ -5,17 +5,20 @@ import makeRootReducer from './reducers'
 import { updateLocation } from './location'
 import { POLLEE_STATUSES, USER_TYPES } from './enums'
 
-export const initialState = {
-  userType: USER_TYPES.VISITOR,
-  status: undefined,
-  peer: undefined,
-  connection: undefined,
-  question: undefined,
-  answers: [],
-  location: '/'
-}
+// export const initialState = {
+//   userType: USER_TYPES.VISITOR,
+//   status: undefined,
+//   peer: undefined,
+//   connection: undefined,
+//   question: undefined,
+//   answers: [],
+//   location: '/'
+// }
 
-// export const initialState = {}
+export const initialState = {
+  // location: '/',
+  // blah: 'blah'
+}
 
 export default (initState = initialState) => {
   // ======================================================
@@ -29,6 +32,7 @@ export default (initState = initialState) => {
   const enhancers = []
   if (__DEV__) {
     const devToolsExtension = window.devToolsExtension
+    // const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     if (typeof devToolsExtension === 'function') {
       enhancers.push(devToolsExtension())
     }

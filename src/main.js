@@ -7,7 +7,7 @@ import AppContainer from './containers/AppContainer'
 // Store Instantiation
 // ========================================================
 const initialState = window.___INITIAL_STATE__
-const store = createStore(initialState)
+const store = createStore()
 
 // ========================================================
 // Render Setup
@@ -28,7 +28,8 @@ let render = () => {
 // ========================================================
 if (__DEV__) {
   if (window.devToolsExtension) {
-    window.devToolsExtension.open()
+    // Uncomment to open the Redux Devtools in a new window. Be warned, it's annoying...
+    // window.devToolsExtension.open()
   }
 }
 

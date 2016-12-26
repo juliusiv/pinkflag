@@ -1,0 +1,54 @@
+@import '../../styles/colors';
+
+
+$diameter: 15px;
+
+span {
+   display: flex;
+}
+
+span label {
+   cursor: pointer;
+}
+
+input[type=radio] {
+   position: absolute;
+   top: -9999px;
+   left: -9999px;
+   /* For mobile, it's typically better to position checkbox on top of clickable
+      area and turn opacity to 0 instead. */
+}
+
+input[type=radio], .radio-circle {
+   vertical-align: baseline;
+   margin: 0.5rem;
+}
+
+/* Default State */
+.radio-circle {
+   width: $diameter;
+   height: $diameter;
+   border: 1px solid $light-grey;
+   border-radius: 50%;
+   position: relative;
+   cursor: pointer;
+}
+
+.radio-circle > div {
+   $inner-diameter: $diameter/3;
+
+   width: $inner-diameter;
+   height: $inner-diameter;
+   border-radius: 50%;
+   background: white;
+   position: absolute;
+
+   top: 50%;
+   left: 50%;
+   margin: -$inner-diameter/2 0px -$inner-diameter/2 0px;
+}
+
+/* Toggled State */
+input[type=radio]:checked ~ div {
+   background: $pink;
+}

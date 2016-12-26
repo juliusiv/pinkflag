@@ -1,4 +1,5 @@
 @import 'base';
+@import 'colors';
 
 
 // Some best-practice CSS that's useful for most apps
@@ -18,4 +19,49 @@ body {
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+.button.button-primary,
+button.button-primary,
+input[type=button].button-primary,
+input[type=reset].button-primary,
+input[type=submit].button-primary {
+  background: $pink;
+  border-color: $pink; 
+}
+
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  background: $darker-pink;
+  border-color: $darker-pink;
+}
+
+a {
+  color: $darker-pink;
+}
+
+a:hover {
+  color: $darkest-pink;
+  cursor: pointer;
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid $pink;
+  outline: 0;
 }

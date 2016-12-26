@@ -1,46 +1,54 @@
 import { browserHistory } from 'react-router'
 
-import { CREATE_POLL_PATH } from '../../CreatePoll'
-
 
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const CREATE_NEW_POLL = 'CREATE_NEW_POLL'
+export const START_NEW_POLL = 'START_NEW_POLL'
+
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function createNewPoll () {
-  console.log("createNewPoll action")
-  browserHistory.push('/create-poll')
-
+export function startNewPoll (question, pollType) {
   return {
-    type : CREATE_NEW_POLL
+    type : START_NEW_POLL,
+    question,
+    pollType
   }
 }
 
 export const actions = {
-  createNewPoll
+  startNewPoll
 }
+
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [CREATE_NEW_POLL] : handleCreateNewPoll
+  [START_NEW_POLL]: handleStartNewPoll
 }
 
-function handleCreateNewPoll (state, action) {
-  browserHistory.push(`/${CREATE_POLL_PATH}`)
+function handleStartNewPoll (state, action) {
+  console.log('question', state)
+  return {
+    ...state,
+    question: action.question,
+    pollType: action.pollType
+  }
 }
+
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-// Maybe `initialState` should be only stuff related to the peer and conn...
-// Actually, only the poller status
-export default function homeReducer (state = null, action) {
+const initialState = {
+  pollType : undefined,
+  question : undefined
+}
+
+export default function conductPollReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state

@@ -4,7 +4,7 @@ import HomeRoute from './Home'
 import AboutRoute from './About'
 import CounterRoute from './Counter'
 
-import CreatePollRoute from './CreatePoll'
+import ConductPollRoute from './ConductPoll'
 import PollDashboardRoute from './PollDashboard'
 
 /*  Note: Instead of using JSX, we recommend using react-router
@@ -17,7 +17,7 @@ export const createRoutes = (store) => ({
   childRoutes : [
     CounterRoute(store),
     AboutRoute(store),
-    CreatePollRoute(store),
+    ConductPollRoute(store),
     PollDashboardRoute(store)
   ]
 })
