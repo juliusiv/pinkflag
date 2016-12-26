@@ -2,7 +2,6 @@
 import CoreLayout from '../layouts/CoreLayout/CoreLayout'
 import HomeRoute from './Home'
 import AboutRoute from './About'
-import CounterRoute from './Counter'
 
 import ConductPollRoute from './ConductPoll'
 import PollDashboardRoute from './PollDashboard'
@@ -15,8 +14,7 @@ export const createRoutes = (store) => ({
   component   : CoreLayout,
   indexRoute  : HomeRoute,
   childRoutes : [
-    CounterRoute(store),
-    AboutRoute(store),
+    AboutRoute,
     ConductPollRoute(store),
     PollDashboardRoute(store)
   ]
